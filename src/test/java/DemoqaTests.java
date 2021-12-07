@@ -1,3 +1,5 @@
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -8,7 +10,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class DemoqaTests {
     @Test
     void fillFormTest() {
-        //Configuration.startMaximized = true;
+        //Configuration.browserSize = "1024x768";
         String link = "https://demoqa.com/automation-practice-form",
                 welcomeText = "Student Registration Form",
                 firstName = "Frodo",
