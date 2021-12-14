@@ -1,10 +1,17 @@
 import data.TestData;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Link;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.Test;
 
 public class DemoqaTests extends TestBase {
 
     @Test
+    @Owner("novikovav")
+    @Feature("Регистрация нового пользователя")
+    @Link(name = "DEMOQA", url = "https://demoqa.com/automation-practice-form")
     void fillFormTest() {
+
         registrationPage
                 .openPage()
                 .hideBanner()
@@ -20,6 +27,9 @@ public class DemoqaTests extends TestBase {
                 .typeAddress(TestData.address)
                 .setStateAndCity("Uttar Pradesh", "Agra")
                 .pushSubmitBtn();
+
+        TestData.getScreenshot();
+
 
         verificationPage
                 .verificationTextForm()

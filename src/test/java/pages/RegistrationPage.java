@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import pages.components.CalendarComponent;
 import pages.components.StateAndCityComponent;
 
@@ -28,73 +29,76 @@ public class RegistrationPage {
 
     // public CalendarComponent calendar = new CalendarComponent();
     //public StateAndCityComponent stateandcity = new StateAndCityComponent();
+
+
+    @Step("Открываем страницу регистрации")
     public RegistrationPage openPage() {
         open(LINK);
         welcomeFormProof.shouldHave(text(FORM_TITLE));
         return this;
     }
-
+    @Step("Скрываем нижний баннер")
     public RegistrationPage hideBanner() {
         hideBanner.click();
         return this;
     }
-
-    public RegistrationPage typeFirstName(String value) {
-        firstNameInput.setValue(value);
+    @Step("Вводим ИМЯ: {firstName}")
+    public RegistrationPage typeFirstName(String firstName) {
+        firstNameInput.setValue(firstName);
         return this;
     }
-
-    public RegistrationPage typeLastName(String value) {
-        lastNameInput.setValue(value);
+    @Step(("Вводим ФАМИЛИЮ: {lastName}"))
+    public RegistrationPage typeLastName(String lastName) {
+        lastNameInput.setValue(lastName);
         return this;
     }
-
-    public RegistrationPage typeEmail(String value) {
-        emailInput.setValue(value);
+    @Step("Вводим EMAIL: {email}")
+    public RegistrationPage typeEmail(String email) {
+        emailInput.setValue(email);
         return this;
     }
-
-    public RegistrationPage typeGender(String value) {
-        genderRadio.$(byText(value)).click();
+    @Step("Выбираем ПОЛ: {gender}")
+    public RegistrationPage typeGender(String gender) {
+        genderRadio.$(byText(gender)).click();
         return this;
     }
-
-    public RegistrationPage typeTelNumber(String value) {
-        telNumInput.val(value);
+    @Step("Вводим телефонный номер: {telNumber}")
+    public RegistrationPage typeTelNumber(String telNumber) {
+        telNumInput.val(telNumber);
         return this;
     }
-
+    @Step("Вводим дату рождения: {day} {month} {year}")
     public RegistrationPage setDate(String day, String month, String year) {
         new CalendarComponent().setDate(day, month, year);
         return this;
     }
-
-    public RegistrationPage typeSubjects(String value1, String value2) {
-        subjectInput.setValue(value1).pressTab();
-        subjectInput.setValue(value2).pressTab();
+    @Step("Выбираем название предмета: {subject1} и {subject2}")
+    public RegistrationPage typeSubjects(String subject1, String subject2) {
+        subjectInput.setValue(subject1).pressTab();
+        subjectInput.setValue(subject2).pressTab();
         return this;
     }
-
-    public RegistrationPage setHobbies(String value) {
-        $(byText(value)).click();
+    @Step("Выбираем хобби: {hobby}")
+    public RegistrationPage setHobbies(String hobby) {
+        $(byText(hobby)).click();
         return this;
     }
-
+    @Step("Загружаем файл")
     public RegistrationPage uploadFile(String fileName) {
         fileUploadSelect.uploadFromClasspath(fileName);
         return this;
     }
-
+    @Step("Вводим адрес")
     public RegistrationPage typeAddress(String value) {
         currentAddressInput.setValue(value);
         return this;
     }
-
+    @Step("Выбираем штат: {state} и город: {city} ")
     public RegistrationPage setStateAndCity(String state, String city) {
         new StateAndCityComponent().setStateAndCity(state, city);
         return this;
     }
-
+    @Step("Нажимаем кнопку SUBMIT")
     public void pushSubmitBtn() {
         $("#submit").click();
     }

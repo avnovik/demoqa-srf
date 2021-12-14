@@ -1,6 +1,11 @@
 package data;
 
+import com.codeborne.selenide.WebDriverRunner;
 import com.github.javafaker.Faker;
+import io.qameta.allure.Attachment;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,5 +40,9 @@ public class TestData {
         put("State and City", state + " " + city);
     }};
 
-
+    @Attachment(value = "Screenshot", type = "image/png", fileExtension = "png")
+    public static byte[] getScreenshot() {
+        final WebDriver driver = WebDriverRunner.getWebDriver();
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+    }
 }

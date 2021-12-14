@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import data.TestData;
+import io.qameta.allure.Step;
 import org.assertj.core.api.SoftAssertions;
 
 import static com.codeborne.selenide.Condition.text;
@@ -23,6 +24,7 @@ public class VerificationPage {
         return this;
     }
 
+    @Step("Проверка введенных данных")
     public VerificationPage softAssertForm() {
         ElementsCollection lines = $$(".table-responsive tbody tr").snapshot();
         SoftAssertions softly = new SoftAssertions();
