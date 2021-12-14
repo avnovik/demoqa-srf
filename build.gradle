@@ -5,7 +5,7 @@ plugins {
 
 allure {
     report {
-        version.set("2.14.0")
+        version.set("2.16.1")
     }
     adapter {
         autoconfigure.set true
