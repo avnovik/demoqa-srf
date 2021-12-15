@@ -8,6 +8,8 @@ import pages.VerificationPage;
 
 public class TestBase {
 
+    RegistrationPage registrationPage = new RegistrationPage();
+    VerificationPage verificationPage = new VerificationPage();
 
     @BeforeAll
     static void beforeAll() {
@@ -20,9 +22,6 @@ public class TestBase {
 
         Configuration.browserCapabilities = capabilities;
     }
-
-    RegistrationPage registrationPage = new RegistrationPage();
-    VerificationPage verificationPage = new VerificationPage();
 
     @AfterEach
     public void tearDown() {
