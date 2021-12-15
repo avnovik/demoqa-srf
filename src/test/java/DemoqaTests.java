@@ -28,9 +28,6 @@ public class DemoqaTests extends TestBase {
                 .setStateAndCity("Uttar Pradesh", "Agra")
                 .pushSubmitBtn();
 
-        TestData.getScreenshot();
-
-
         verificationPage
                 .verificationTextForm()
                 .softAssertForm()
