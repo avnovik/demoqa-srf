@@ -22,11 +22,12 @@ public class TestBase {
 
         String login = credentials.login();
         String password = credentials.password();
-        String url = System.getProperty("url");
+        String url = System.getProperty("url");   //hide url -> 'gradle clean test -Durl=selenoid.autotests.cloud/wd/hub/'
         //String url = System.getProperty("url", "selenoid.autotests.cloud/wd/hub/");
 
         Configuration.remote = format("https://%s:%s@%s", login, password, url);
 
+        System.out.println(Configuration.remote);
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
