@@ -1,9 +1,9 @@
-package pages;
+package tests.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import pages.components.CalendarComponent;
-import pages.components.StateAndCityComponent;
+import tests.pages.components.CalendarComponent;
+import tests.pages.components.StateAndCityComponent;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -85,8 +85,8 @@ public class RegistrationPage {
     }
     @Step("Загружаем файл")
     public RegistrationPage uploadFile(String fileName) {
-        //fileUploadSelect.uploadFromClasspath(fileName);
-        fileUploadSelect.scrollIntoView(true).uploadFromClasspath(fileName);
+        fileUploadSelect.uploadFromClasspath(fileName);
+        //fileUploadSelect.scrollIntoView(true).uploadFromClasspath(fileName);
         return this;
     }
     @Step("Вводим адрес")

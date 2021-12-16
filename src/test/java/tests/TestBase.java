@@ -1,15 +1,17 @@
+package tests;
+
 import com.codeborne.selenide.Configuration;
 import helpers.Attach;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import pages.RegistrationPage;
-import pages.VerificationPage;
+import tests.pages.RegistrationPage;
+import tests.pages.VerificationPage;
 
 public class TestBase {
 
-    RegistrationPage registrationPage = new RegistrationPage();
-    VerificationPage verificationPage = new VerificationPage();
+    protected RegistrationPage registrationPage = new RegistrationPage();
+    protected VerificationPage verificationPage = new VerificationPage();
 
     @BeforeAll
     static void beforeAll() {

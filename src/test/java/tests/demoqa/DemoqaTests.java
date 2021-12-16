@@ -1,8 +1,11 @@
+package tests.demoqa;
+
 import data.TestData;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Link;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.Test;
+import tests.TestBase;
 
 public class DemoqaTests extends TestBase {
 
