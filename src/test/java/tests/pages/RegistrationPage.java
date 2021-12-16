@@ -86,7 +86,6 @@ public class RegistrationPage {
     @Step("Загружаем файл")
     public RegistrationPage uploadFile(String fileName) {
         fileUploadSelect.uploadFromClasspath(fileName);
-        //fileUploadSelect.scrollIntoView(true).uploadFromClasspath(fileName);
         return this;
     }
     @Step("Вводим адрес")

@@ -8,6 +8,9 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import tests.pages.RegistrationPage;
 import tests.pages.VerificationPage;
 
+import static config.Credentials.credentials;
+import static java.lang.String.format;
+
 public class TestBase {
 
     protected RegistrationPage registrationPage = new RegistrationPage();
@@ -17,7 +20,11 @@ public class TestBase {
     static void beforeAll() {
         Configuration.startMaximized = true;
 
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";
+        String login = credentials.login();
+        String password = credentials.password();
+        String url = System.getProperty("url", "selenoid.autotests.cloud/wd/hub/");
+
+        Configuration.remote = format("https://%s:%s@%s", login, password, url);
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
